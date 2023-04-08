@@ -1,0 +1,5 @@
+.token-column {
+  max-width: 50px;
+  overflow: hidden;
+  text-overflow: clip;
+}
