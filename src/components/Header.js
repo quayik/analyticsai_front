@@ -26,7 +26,7 @@ function Header(props) {
                         </li>
                     </ul>
                     <form className="d-flex">
-                        <button className="btn btn-outline-success" type="submit">Log in / Sign up</button>
+                        <button className="btn btn-outline-success" type='button' onClick={props.toggleSignUp}>Log in / Sign up</button>
                     </form>
                 </div>
 

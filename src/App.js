@@ -6,25 +6,30 @@ import Header from './components/Header';
 import AddItemForm from './components/AddItemForm';
 import MyItems from './components/MyItems';
 import Analytics from './components/Analytics';
+import SignUp from './components/SignUp';
 
 function App() {
   const [showMyItems, setShowMyItems] = useState(false);
   const [showAddItem, setShowAddItem] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false)
+
   const [activeTab, setActiveTab] = useState('')
 
   const toggleMyItems = () => {
     setShowMyItems(!showMyItems);
     setActiveTab("MyItems");
     setShowAddItem(false);
-    setShowAnalytics(false)
+    setShowAnalytics(false);
+    setShowSignUp(false);
   };
 
   const toggleAddItem = () => {
     setShowAddItem(!showAddItem);
     setActiveTab("AddItem");
     setShowMyItems(false);
-    setShowAnalytics(false)
+    setShowAnalytics(false);
+    setShowSignUp(false);
   };
 
   const toggleAnalytics = () => {
@@ -32,11 +37,20 @@ function App() {
     setActiveTab("Analytics");
     setShowAddItem(false);
     setShowMyItems(false);
+    setShowSignUp(false);
   };
+
+  const toggleSignUp = () => {
+    setShowSignUp(!showSignUp)
+    setShowAnalytics(false);
+    setShowAddItem(false);
+    setShowMyItems(false);
+    setActiveTab("");
+  }
 
   return (
     <div className="App">
-      <Header toggleMyItems={toggleMyItems} toggleAddItem={toggleAddItem} toggleAnalytics={toggleAnalytics} activeTab={activeTab} />
+      <Header toggleSignUp={toggleSignUp} toggleMyItems={toggleMyItems} toggleAddItem={toggleAddItem} toggleAnalytics={toggleAnalytics} activeTab={activeTab} />
 
       {showAddItem && (
         <div className="container">
@@ -58,6 +72,14 @@ function App() {
         <div className="container">
           <div className="row">
             <Analytics />
+          </div>
+        </div>
+      )}
+
+      {showSignUp && (
+        <div className="container">
+          <div className="row">
+            <SignUp />
           </div>
         </div>
       )}
